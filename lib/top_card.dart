@@ -24,7 +24,7 @@ class TopNeuCard extends StatelessWidget {
               Text('B A L A N C E',
                   style: TextStyle(color: Colors.grey[500], fontSize: 16)),
               Text(
-                '\$' + balance,
+                '\₹' + balance,
                 style: TextStyle(color: Colors.grey[800], fontSize: 40),
               ),
               Padding(
@@ -58,7 +58,7 @@ class TopNeuCard extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('\$' + income,
+                            Text('\₹' + income,
                                 style: TextStyle(
                                     color: Colors.grey[600],
                                     fontWeight: FontWeight.bold)),
@@ -92,7 +92,7 @@ class TopNeuCard extends StatelessWidget {
                             SizedBox(
                               height: 5,
                             ),
-                            Text('\$' + expense,
+                            Text('\₹' + expense,
                                 style: TextStyle(
                                     color: Colors.grey[600],
                                     fontWeight: FontWeight.bold)),

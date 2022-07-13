@@ -1,10 +1,12 @@
 import 'dart:async';
+// import 'dart:html';
 import 'package:flutter/material.dart';
 import 'google_sheets_api.dart';
 import 'loading_circle.dart';
 import 'plus_button.dart';
 import 'top_card.dart';
 import 'transaction.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   final _textcontrollerITEM = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isIncome = false;
+  final _datetime = DateTime.now().toString();
 
   // enter the new transaction into the spreadsheet
   void _enterTransaction() {
@@ -26,6 +29,7 @@ class _HomePageState extends State<HomePage> {
       _textcontrollerITEM.text,
       _textcontrollerAMOUNT.text,
       _isIncome,
+      _datetime,
     );
     setState(() {});
   }
@@ -140,6 +144,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   print("Data");
+  //   print(GoogleSheetsApi.currentTransactions);
+  // }
+
   @override
   Widget build(BuildContext context) {
     // start loading until the data arrives
@@ -185,6 +197,8 @@ class _HomePageState extends State<HomePage> {
                                         .currentTransactions[index][1],
                                     expenseOrIncome: GoogleSheetsApi
                                         .currentTransactions[index][2],
+                                    date: GoogleSheetsApi
+                                        .currentTransactions[index][3],
                                   );
                                 }),
                       )

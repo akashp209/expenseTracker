@@ -4,11 +4,13 @@ class MyTransaction extends StatelessWidget {
   final String transactionName;
   final String money;
   final String expenseOrIncome;
+  final String date;
 
   MyTransaction({
     required this.transactionName,
     required this.money,
     required this.expenseOrIncome,
+    required this.date,
   });
 
   @override
@@ -46,8 +48,9 @@ class MyTransaction extends StatelessWidget {
                       )),
                 ],
               ),
+              // Text(date),
               Text(
-                (expenseOrIncome == 'expense' ? '-' : '+') + '\$' + money,
+                (expenseOrIncome == 'expense' ? '-' : '+') + '\₹' + money,
                 style: TextStyle(
                   //fontWeight: FontWeight.bold,
                   fontSize: 16,
